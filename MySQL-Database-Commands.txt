@@ -12,7 +12,8 @@ INSERT INTO accounts_table(Name,Username,Password,PhoneNumber,IsOwner)
 VALUES("Jose Marionne D. Mendoza","admin","admin","123",1),
 ("Naruto Uzumaki","employee1","employee1","456",0),
 ("Sasuke Uchiha","employee2","employee2","789",0),
-("Sakura Haruno","employee3","employee3","012",0);
+("Sakura Haruno","employee3","employee3","012",0),
+("Tsunade Sama","employee4","employee4","0123",0);
 
 CREATE TABLE customer_record_table(
 RecordID int not null primary key auto_increment,
