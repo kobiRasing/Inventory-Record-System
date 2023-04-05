@@ -1,1 +1,69 @@
+CREATE DATABASE inventory_system;
+USE inventory_system;
 
+CREATE TABLE accounts_table(
+UserID int not null primary key auto_increment,
+Name varchar(50) not null,
+Username varchar(20) not null,
+Password varchar(50) not null,
+PhoneNumber varchar(11) not null,
+IsOwner tinyint(1) default 0);
+INSERT INTO accounts_table(Name,Username,Password,PhoneNumber,IsOwner)
+VALUES("Jose Marionne D. Mendoza","admin","admin","123",1),
+("Naruto Uzumaki","employee1","employee1","456",0),
+("Sasuke Uchiha","employee2","employee2","789",0),
+("Sakura Haruno","employee3","employee3","012",0);
+
+CREATE TABLE customer_record_table(
+RecordID int not null primary key auto_increment,
+DateOfJob DATE not null,
+CustomerName varchar(50) not null,
+CarModel varchar(50) not null,
+PhoneNumber varchar(11) not null,
+PlateNumber varchar(20) not null);
+INSERT INTO customer_record_table(DateOfJob,CustomerName,CarModel,PhoneNumber,PlateNumber)
+VALUES("2021-05-03","Minato Namikaze","Ford Kuga","345","8DKK147"),
+("2021-10-05","Kakashi Hatake","Skoda Yeti","678","VTI528"),
+("2022-04-05","Asuma Sarutobi","Kia Niro","901","JGR7905"),
+("2022-07-05","Kurenai Yuhi","Mazda CX-9","234","8DBG263");
+
+CREATE TABLE job_record_table(
+RecordID int not null,
+JobDone varchar(30) not null,
+JobCost decimal(10,2) not null);
+INSERT INTO job_record_table(RecordID,JobDone,JobCost)
+VALUES(1,"job1",35000.00),
+(1,"job2",10000.00),
+(1,"job1",35000.00),
+(2,"job4",25000.00),
+(2,"job3",5000.00),
+(3,"job2",10000.00),
+(3,"job4",25000.00),
+(4,"job1",35000.00),
+(4,"job3",5000.00),
+(4,"job2",10000.00);
+
+CREATE TABLE expenses_table(
+ExpenseID int not null primary key auto_increment,
+DateOfExpense DATE not null,
+TypeOfExpense varchar(30) not null,
+PersonResponsible varchar(50) not null,
+CostOfExpense decimal(10,2) not null);
+INSERT INTO expenses_table(DateOfExpense,TypeOfExpense,PersonResponsible,CostOfExpense)
+VALUES("2021-03-18","parts supply","Jose Marionne D. Mendoza",1500.00),
+("2021-03-18","brand new power tools","Jose Marionne D. Mendoza",6500.00),
+("2021-03-18","food","Jose Marionne D. Mendoza",200.00),
+("2021-03-18","freon supply","Jose Marionne D. Mendoza",3000.00);
+
+CREATE TABLE staff_info_table(
+StaffID int not null primary key auto_increment,
+StaffName varchar(50) not null,
+StaffPhoneNumber varchar(11) not null,
+StaffAddress varchar(100) not null,
+StaffAge int not null,
+StaffBirthday DATE not null);
+INSERT INTO staff_info_table(StaffName,StaffPhoneNumber,StaffAddress,StaffAge,StaffBirthday)
+VALUES("Ino Yamanaka","567","93 Timog Avenue 1100",(2023-1992),"1992-01-17"),
+("Shikamaru Nara","890","JLP Bldg. entrance of V. Cecilia Mansions Kagudoy Road, Basak",(2022-1996),"1996-09-04"),
+("Choji Akimichi","987","R-Far-J Building Ii 1200",(2022-1996),"1996-12-26"),
+("Hinata Hyuga","654","Madrigal Building",(2022-2000),"2000-04-25");
