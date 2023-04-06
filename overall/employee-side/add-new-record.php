@@ -40,8 +40,8 @@
                     $newJobCost = $_POST['new-job-cost'];
 
                     // enter information muna sa customer_record_table para magkaroon ng id 
-                    $enterNewInfo = "INSERT INTO customer_record_table(DateOfJob, CustomerName, CarModel, PhoneNumber, PlateNumber)
-                        VALUES('$newDate','$newCustomerName','$newCarModel','$newPhoneNumber', '$newPlateNumber')";
+                    $enterNewInfo = "INSERT INTO customer_record_table(CustomerName,CarModel,PhoneNumber,PlateNumber)
+                        VALUES('$newCustomerName','$newCarModel','$newPhoneNumber', '$newPlateNumber')";
                     
                     // enter information to database
                     mysqli_query($sqlConnect,$enterNewInfo);
@@ -54,14 +54,14 @@
                     }
 
                     // enter the rest of the information to job_record_table since nakuha na yung id
-                    $enterJobInfo = "INSERT INTO job_record_table(RecordID, JobDone, JobCost)
-                        VALUES('$newId','$newJobDone','$newJobCost')";
+                    $enterJobInfo = "INSERT INTO job_record_table(RecordID,DateOfJob,JobDone,JobCost)
+                        VALUES('$newId','$newDate','$newJobDone','$newJobCost')";
                     
                     // enter information to database
                     mysqli_query($sqlConnect,$enterJobInfo);
 
                     echo "Registration Successful!";
-                    
+                    mysqli_close($sqlConnect);
                 }
                 else echo "Make sure all fields are filled up.";
             }

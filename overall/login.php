@@ -44,6 +44,7 @@
                     }
                 }
                 echo "Account not in database";
+                mysqli_close($sqlConnect);
             }
         ?>
     </body>

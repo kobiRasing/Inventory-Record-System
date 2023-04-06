@@ -17,32 +17,32 @@ VALUES("Jose Marionne D. Mendoza","admin","admin","123",1),
 
 CREATE TABLE customer_record_table(
 RecordID int not null primary key auto_increment,
-DateOfJob DATE not null,
 CustomerName varchar(50) not null,
 CarModel varchar(50) not null,
 PhoneNumber varchar(11) not null,
 PlateNumber varchar(20) not null);
-INSERT INTO customer_record_table(DateOfJob,CustomerName,CarModel,PhoneNumber,PlateNumber)
-VALUES("2021-05-03","Minato Namikaze","Ford Kuga","345","8DKK147"),
-("2021-10-05","Kakashi Hatake","Skoda Yeti","678","VTI528"),
-("2022-04-05","Asuma Sarutobi","Kia Niro","901","JGR7905"),
-("2022-07-05","Kurenai Yuhi","Mazda CX-9","234","8DBG263");
+INSERT INTO customer_record_table(CustomerName,CarModel,PhoneNumber,PlateNumber)
+VALUES("Minato Namikaze","Ford Kuga","345","8DKK147"),
+("Kakashi Hatake","Skoda Yeti","678","VTI528"),
+("Asuma Sarutobi","Kia Niro","901","JGR7905"),
+("Kurenai Yuhi","Mazda CX-9","234","8DBG263");
 
 CREATE TABLE job_record_table(
 RecordID int not null,
+DateOfJob DATE not null,
 JobDone varchar(30) not null,
 JobCost decimal(10,2) not null);
-INSERT INTO job_record_table(RecordID,JobDone,JobCost)
-VALUES(1,"job1",35000.00),
-(1,"job2",10000.00),
-(1,"job1",35000.00),
-(2,"job4",25000.00),
-(2,"job3",5000.00),
-(3,"job2",10000.00),
-(3,"job4",25000.00),
-(4,"job1",35000.00),
-(4,"job3",5000.00),
-(4,"job2",10000.00);
+INSERT INTO job_record_table(RecordID,DateOfJob,JobDone,JobCost)
+VALUES(1,"2020-05-19","job1",35000.00),
+(1,"2021-10-05","job2",10000.00),
+(1,"2022-04-05","job1",35000.00),
+(2,"2022-07-05","job4",25000.00),
+(2,"2021-07-15","job3",5000.00),
+(3,"2021-07-28","job2",10000.00),
+(3,"2022-05-05","job4",25000.00),
+(4,"2022-06-07","job1",35000.00),
+(4,"2023-03-22","job3",5000.00),
+(4,"2023-12-26","job2",10000.00);
 
 CREATE TABLE expenses_table(
 ExpenseID int not null primary key auto_increment,

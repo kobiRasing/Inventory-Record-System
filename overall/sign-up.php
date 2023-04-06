@@ -41,6 +41,7 @@
                         // enter information to database
                         mysqli_query($sqlConnect,$enterNewInfo);
                         echo "Registration Successful. Go Back to Login Page.";
+                        mysqli_close($sqlConnect);
                     }
                     else echo "Password does not match";
                 }
