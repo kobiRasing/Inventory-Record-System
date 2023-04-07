@@ -2,50 +2,52 @@
 <html>
 <head>
 	<title>Customer Record Table</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class="container">
-		<h1>Customer Record Table</h1>
-		<table>
-			<thead>
-				<tr>
-					<th>RecordID</th>
-					<th>DateOfJob</th>
-					<th>CustomerName</th>
-					<th>CarModel</th>
-					<th>PhoneNumber</th>
-					<th>PlateNumber</th>
-				</tr>
-			</thead>
-			<tbody>
-			<?php
-			$servername = "localhost";
-			$username = "username";
-			$password = "password";
-			$dbname = "database_name";
+	<h1>Customer Record Table</h1>
+	<table>
+		<tr>
+			<th>Record ID</th>
+			<th>Date of Job</th>
+			<th>Customer Name</th>
+			<th>Car Model</th>
+			<th>Phone Number</th>
+			<th>Plate Number</th>
+		</tr>
+		<?php
+            // open connection to mysql
+            $sqlConnect = mysqli_connect('localhost','root','');
+            if(!$sqlConnect) die("Failed to connect to the database");
 
-			$conn = new mysqli($servername, $username, $password, $dbname);
+            // choose the database
+            $dbName = 'inventory_system';
+            $selectDB = mysqli_select_db($sqlConnect,$dbName);
+            if(!$selectDB) die("Failed to select the following databaseL: " . $dbName);
 
-			if ($conn->connect_error) {
-			    die("Connection failed: " . $conn->connect_error);
-			}
 
+			// Query database to get customer records
 			$sql = "SELECT * FROM customer_record_table";
-			$result = $conn->query($sql);
+			$result = mysqli_query($sqlConnect, $sql);
 
-			if ($result->num_rows > 0) {
-			    while($row = $result->fetch_assoc()) {
-			        echo "<tr><td>".$row["RecordID"]."</td><td>".$row["DateOfJob"]."</td><td>".$row["CustomerName"]."</td><td>".$row["CarModel"]."</td><td>".$row["PhoneNumber"]."</td><td>".$row["PlateNumber"]."</td></tr>";
-			    }
+			if (mysqli_num_rows($result) > 0) {
+				// Output each customer record
+				while($row = mysqli_fetch_assoc($result)) {
+					echo "<tr>";
+					echo "<td>" . $row["RecordID"] . "</td>";
+					echo "<td>" . $row["DateOfJob"] . "</td>";
+					echo "<td>" . $row["CustomerName"] . "</td>";
+					echo "<td>" . $row["CarModel"] . "</td>";
+					echo "<td>" . $row["PhoneNumber"] . "</td>";
+					echo "<td>" . $row["PlateNumber"] . "</td>";
+					echo "<td><a href='view-jobs-owner.php?id=" . $row["RecordID"] . "'>View Jobs</a></td>";
+					echo "</tr>";
+				}
 			} else {
-			    echo "0 results";
+				echo "0 results";
 			}
 
-			$conn->close();
-			?>
-			</tbody>
-		</table>
-	</div>
+			mysqli_close($sqlConnect);
+		?>
+	</table>
 </body>
 </html>
