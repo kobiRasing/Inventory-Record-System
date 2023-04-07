@@ -1,5 +1,27 @@
+<!DOCTYPE html>
 <html>
-    <h3>
-        Owner's Main Menu
-    </h3>
+<head>
+    <title> Autofrost - Home </title>
+    <link rel="stylesheet" type="text/css" href="../css/home.css">
+</head>
+<body id="homeBody">
+    <div class="homeHeader">
+        <h1>AUTOFROST</h1>
+        <h3>Record Management System</h3>
+    </div>
+    <div class="container">
+        <div class="card">
+            <h2>View Record</h2>
+            <a href="#">Go</a>
+        </div>
+        <div class="card">
+            <h2>View Staff</h2>
+            <a href="#">Go</a>
+        </div>
+        <div class="card">
+            <h2>Logout</h2>
+            <a href="../login.php">Go</a>
+        </div>
+    </div>
+</body>
 </html>
