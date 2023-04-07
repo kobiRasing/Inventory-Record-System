@@ -18,14 +18,14 @@
         if (isset($_GET['RecordID'])) {
             $RecordID = $_GET['RecordID'];
                 // Retrieve job records from job_record_table with matching RecordID
-                $sql = "SELECT JobDone, JobCost FROM job_record_table WHERE RecordID = '$RecordID'";
+                $sql = "SELECT JobDone, DateofJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID'";
                 $result = mysqli_query($sqlConnect, $sql);
 
                 // Display table of job records
                 if (mysqli_num_rows($result) > 0) {
-                    echo "<table><tr><th>Job Done</th><th>Job Cost</th></tr>";
+                    echo "<table><tr><th>Job Done</th><th>Date of Job</th><th>Job Cost</th></tr>";
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr><td>" . $row["JobDone"] . "</td><td>" . $row["JobCost"] . "</td></tr>";
+                        echo "<tr><td>" . $row["JobDone"] . "</td><td>" . $row["DateofJob"] . "</td><td>" . $row["JobCost"] . "</td></tr>";
                     }
                     echo "</table>";
                 } else {

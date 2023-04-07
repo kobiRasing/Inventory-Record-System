@@ -8,7 +8,7 @@
 	<table>
 		<tr>
 			<th>Record ID</th>
-			<th>Date of Job</th>
+			
 			<th>Customer Name</th>
 			<th>Car Model</th>
 			<th>Phone Number</th>
@@ -34,12 +34,12 @@
 				while($row = mysqli_fetch_assoc($result)) {
 					echo "<tr>";
 					echo "<td>" . $row["RecordID"] . "</td>";
-					echo "<td>" . $row["DateOfJob"] . "</td>";
+					//echo "<td>" . $row["DateOfJob"] . "</td>";
 					echo "<td>" . $row["CustomerName"] . "</td>";
 					echo "<td>" . $row["CarModel"] . "</td>";
 					echo "<td>" . $row["PhoneNumber"] . "</td>";
 					echo "<td>" . $row["PlateNumber"] . "</td>";
-					echo "<td><a href='view-jobs-owner.php?id=" . $row["RecordID"] . "'>View Jobs</a></td>";
+                    echo "<td><a href='view-jobs-owner.php?RecordID=" . $row["RecordID"] . "'>View Jobs</a></td>";
 					echo "</tr>";
 				}
 			} else {
