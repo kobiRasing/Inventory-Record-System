@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Job Record Table</title>
+    <title>Autofrost - Job Record Table</title>
+    <link rel="stylesheet" type="text/css" href="../css/viewjobs.css">
 </head>
-<body>
-	<h1>Job Record Table</h1>
+<body id = "jobsBody">
+    <div class="jobsHeader">
+        <h1>AUTOFROST</h1>
+        <h3>Record Management System</h3>
+    </div>
 	<?php
 		// open connection to mysql
 		$sqlConnect = mysqli_connect('localhost','root','');
-		if(!$sqlConnect) die("Failed to connect to the database");
+		if(!$sqlConnect) 
+            die("Failed to connect to the database");
 
 		// choose the database
 		$dbName = 'inventory_system';
 		$selectDB = mysqli_select_db($sqlConnect,$dbName);
-		if(!$selectDB) die("Failed to select the following databaseL: " . $dbName);
+		if(!$selectDB) 
+            die("Failed to select the following databaseL: " . $dbName);
 
         if (isset($_GET['RecordID'])) {
             $RecordID = $_GET['RecordID'];

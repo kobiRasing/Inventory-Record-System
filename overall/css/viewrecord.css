@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2&display=swap');
+
+body#recordBody {
+    background: url(images/3.jpg) no-repeat center center fixed;
+    background-size: cover;	
+    font-family: 'Exo 2', sans-serif;
+    background-color: #f2f2f2;
+}
+
+div.recordHeader {
+    background-color: #24292e;
+    color: #0073ff;
+    padding: 20px;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    position: relative;
+    animation: fadeIn 0.5s;
+}
+  
+div.recordHeader h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    position: relative;
+    animation: slideInDown 0.5s ease;
+}
+
+div.recordHeader h3 {
+    font-size: 18px;
+    color: #ffffff;
+    position: relative;
+    animation: slideInUp 0.5s ease;
+}
+
+/* Set style for the table */
+table {
+    margin: 50px auto 0;
+    border-collapse: collapse;
+    width: 80%;
+    background-color: #fff;
+    box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Set style for the table header */
+th {
+    text-align: left;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #0073ff;
+    padding: 1rem;
+}
+
+/* Set style for the table rows */
+tr {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Set style for the table data */
+td {
+    font-size: 1.1em;
+    color: #2d2d2d;
+    padding: 1rem;
+}
+
+/* Set style for links */
+a {
+    color: #fff;
+    background-color: #0073ff;
+    padding: 0.3rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+    color: #fff;
+    background-color: #000;
+    padding: 0.8rem;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+tr {
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
+}
+
+th {
+    animation-name: slideIn;
+    animation-duration: 0.5s;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}

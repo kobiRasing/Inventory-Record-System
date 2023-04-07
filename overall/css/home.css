@@ -14,18 +14,23 @@ div.homeHeader {
     text-align: center;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-  }
+    position: relative;
+    animation: fadein 0.5s;
+}
   
-  div.homeHeader h1 {
+div.homeHeader h1 {
     font-size: 36px;
     margin-bottom: 10px;
-  }
-  
-  div.homeHeader h3 {
+    position: relative;
+    animation: slideInDown 0.5s ease;
+}
+
+div.homeHeader h3 {
     font-size: 18px;
     color: #ffffff;
-  }
-  
+    position: relative;
+    animation: slideInUp 0.5s ease;
+}
 
 .container {
     max-width: 1200px;
@@ -69,7 +74,7 @@ div.homeHeader {
 .card a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4CAF50;
+    background-color: #0073ff;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -80,5 +85,37 @@ div.homeHeader {
 }
 
 .card a:hover {
-    background-color: #3e8e41;
+    background-color: #000;
 }
+
+@keyframes slideInDown {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

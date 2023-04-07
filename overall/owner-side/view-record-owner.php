@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Customer Record Table</title>
+	<title>Autofrost - Customer Record Table</title>
+    <link rel="stylesheet" type="text/css" href="../css/viewrecord.css">
 </head>
-<body>
-	<h1>Customer Record Table</h1>
+<body id = "recordBody">
+    <div class="recordHeader">
+        <h1>AUTOFROST</h1>
+        <h3>Record Management System</h3>
+    </div>
 	<table>
 		<tr>
 			<th>Record ID</th>
-			
 			<th>Customer Name</th>
 			<th>Car Model</th>
 			<th>Phone Number</th>
 			<th>Plate Number</th>
+            <th>Check Jobs</th>
 		</tr>
 		<?php
             // open connection to mysql
@@ -24,7 +28,6 @@
             $selectDB = mysqli_select_db($sqlConnect,$dbName);
             if(!$selectDB) die("Failed to select the following databaseL: " . $dbName);
 
-
 			// Query database to get customer records
 			$sql = "SELECT * FROM customer_record_table";
 			$result = mysqli_query($sqlConnect, $sql);
@@ -34,7 +37,6 @@
 				while($row = mysqli_fetch_assoc($result)) {
 					echo "<tr>";
 					echo "<td>" . $row["RecordID"] . "</td>";
-					//echo "<td>" . $row["DateOfJob"] . "</td>";
 					echo "<td>" . $row["CustomerName"] . "</td>";
 					echo "<td>" . $row["CarModel"] . "</td>";
 					echo "<td>" . $row["PhoneNumber"] . "</td>";

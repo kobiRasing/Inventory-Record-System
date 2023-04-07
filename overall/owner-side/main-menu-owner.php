@@ -12,11 +12,11 @@
     <div class="container">
         <div class="card">
             <h2>View Record</h2>
-            <a href="#">Go</a>
+            <a href="view-record-owner.php">Go</a>
         </div>
         <div class="card">
             <h2>View Staff</h2>
-            <a href="#">Go</a>
+            <a href="view-staff-owner.php">Go</a>
         </div>
         <div class="card">
             <h2>Logout</h2>
