@@ -17,6 +17,7 @@
                 <lord-icon
                     src="https://cdn.lordicon.com/msoeawqm.json"
                     trigger="loop-on-hover"
+                    colors="primary:#ffffff,secondary:#e8e230"
                     style="width:100px;height:100px">
                 </lord-icon>
                 <h2>Customer Records</h2>
@@ -27,6 +28,7 @@
                 <lord-icon
                     src="https://cdn.lordicon.com/eszyyflr.json"
                     trigger="loop-on-hover"
+                    colors="primary:#ffffff,secondary:#e8e230"
                     style="width:100px;height:100px">
                 </lord-icon>
                 <h2>Staff Information</h2>
@@ -37,6 +39,7 @@
                 <lord-icon
                     src="https://cdn.lordicon.com/gmzxduhd.json"
                     trigger="loop-on-hover"
+                    colors="primary:#ffffff,secondary:#e8e230"
                     style="width:100px;height:100px">
                 </lord-icon>
                 <h2>Logout</h2>

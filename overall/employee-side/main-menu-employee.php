@@ -15,9 +15,9 @@
         <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
             <div class="card">
                 <lord-icon
-                    src="https://cdn.lordicon.com/puvaffet.json"
+                src="https://cdn.lordicon.com/puvaffet.json"
                     trigger="loop-on-hover"
-                    delay="2000"
+                    colors="primary:#ffffff,secondary:#e8e230"
                     style="width:100px;height:100px">
                 </lord-icon>
                 <h2>Add New Record</h2>
@@ -27,7 +27,8 @@
             <div class="card">
                 <lord-icon
                     src="https://cdn.lordicon.com/wloilxuq.json"
-                    trigger="hover"
+                    trigger="loop-on-hover"
+                    colors="primary:#ffffff,secondary:#e8e230"
                     style="width:100px;height:100px">
                 </lord-icon>
                 <h2>Add Existing Record</h2>
@@ -38,6 +39,7 @@
                 <lord-icon
                     src="https://cdn.lordicon.com/msoeawqm.json"
                     trigger="loop-on-hover"
+                    colors="primary:#ffffff,secondary:#e8e230"
                     style="width:100px;height:100px">
                 </lord-icon>
                 <h2>View Records</h2>
@@ -48,6 +50,7 @@
                 <lord-icon
                     src="https://cdn.lordicon.com/gmzxduhd.json"
                     trigger="loop-on-hover"
+                    colors="primary:#ffffff,secondary:#e8e230"
                     style="width:100px;height:100px">
                 </lord-icon>
                 <h2>Logout</h2>
