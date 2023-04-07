@@ -2,6 +2,7 @@
     <head>
         <title> Autofrost - Record Management System </title>
         <link rel = "stylesheet" type = "text/css" href = "css/login.css"/>
+        <link rel = "icon" type = "image/png" href = "css/images/ico.png"/>
     </head>
 
     <body id="loginBody">
@@ -26,7 +27,7 @@
             </form>
             <form action='sign-up.php' method='post'>
                 <div class="btn-group">
-                    <button type="submit" name="login">Signup</button>
+                    <button type="submit" name="login">Sign up</button>
                 </div>
             </form>
             <div class="error">

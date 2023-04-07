@@ -1,19 +1,33 @@
 <html>
-    <h3>
-        Sign Up As Employee
-    </h3>
-    <body>
-        <form action = 'sign-up.php' method = 'post'>
-            Full Name: <input type = 'text' name = 'new-name' /><br>
-            Username: <input type = 'text' name = 'new-user' /><br>
-            Phone Number: <input type = 'text' name = 'new-phone-number' /><br>
-            Password: <input type = 'password' name = 'new-pass' /><br>
-            Confirm Password: <input type = 'password' name = 'confirm-new-pass' /><br>
-            <input type = 'submit' value = 'Sign Up' name = 'signup' /><br> 
-        </form>
-        <form action = 'login.php' method = 'post'>
-            <input type = 'submit' value = 'Go to Log In' /><br> 
-        </form>
+    <head>
+        <title> Autofrost - Record Management System </title>
+        <link rel = "stylesheet" type = "text/css" href = "css/signup.css"/>
+        <link rel = "icon" type = "image/png" href = "css/images/ico.png"/>
+    </head>
+
+    <body id="signupBody">
+    <div class="container">
+        <div class="signupHeader">
+            <h1>AUTOFROST</h1>
+            <h3>Record Management System</h3>
+        </div>
+        <div class="signupBody">
+            <form action = 'sign-up.php' method = 'post'>
+                Full Name: <input type = 'text' name = 'new-name' /><br>
+                Username: <input type = 'text' name = 'new-user' /><br>
+                Phone Number: <input type = 'text' name = 'new-phone-number' /><br>
+                Password: <input type = 'password' name = 'new-pass' /><br>
+                Confirm Password: <input type = 'password' name = 'confirm-new-pass' /><br> <br>
+                <div class="btn-group">
+                    <button type="submit" name="signup">Sign Up</button>
+                </div>
+            </form>
+            <form action = 'login.php' method = 'post'>
+                <div class="btn-group">
+                    <button type="submit">Already have an account?</button>
+                </div>
+            </form>
+            <div class="error">
 
         <?php
             if(isset($_POST['signup'])){

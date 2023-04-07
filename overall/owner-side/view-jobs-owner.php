@@ -3,6 +3,7 @@
 <head>
     <title>Autofrost - Job Record Table</title>
     <link rel="stylesheet" type="text/css" href="../css/viewjobs.css">
+    <link rel = "icon" type = "image/png" href = "css/images/ico.png"/>
 </head>
 <body id = "jobsBody">
     <div class="jobsHeader">

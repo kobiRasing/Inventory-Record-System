@@ -3,6 +3,7 @@
 <head>
 	<title>Autofrost - Staff Record Table</title>
     <link rel="stylesheet" type="text/css" href="../css/viewstaff.css">
+	<link rel = "icon" type = "image/png" href = "css/images/ico.png"/>
 </head>
 <body id = "staffBody">
     <div class="staffHeader">

@@ -3,10 +3,11 @@
 <head>
 	<title>Autofrost - Customer Record Table</title>
     <link rel="stylesheet" type="text/css" href="../css/viewrecord.css">
+	<link rel = "icon" type = "image/png" href = "css/images/ico.png"/>
 </head>
 <body id = "recordBody">
     <div class="recordHeader">
-        <h1>AUTOFROST</h1>
+        <h1 >AUTOFROST</h1>
         <h3>Record Management System</h3>
     </div>
 	<table>

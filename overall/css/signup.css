@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Exo+2&display=swap');
 
-body#loginBody {
+body#signupBody {
     background: url(images/1.jpg) no-repeat center center fixed;
     background-size: cover;	
     font-family: 'Exo 2', sans-serif;
@@ -16,7 +16,7 @@ div.container {
   animation: fadein 0.5s;
 }
 
-div.loginHeader {
+div.signupHeader {
   background-color: #24292e;
   color: #0073ff;
   padding: 20px;
@@ -25,36 +25,36 @@ div.loginHeader {
   border-top-right-radius: 5px;
 }
 
-div.loginHeader h1 {
+div.signupHeader h1 {
   font-size: 36px;
   margin-bottom: 10px;
   transition: all 0.3s ease;
 }
 
-div.loginHeader h3 {
+div.signupHeader h3 {
   font-size: 18px;
   color: #ffffff;
   transition: all 0.3s ease;
 }
 
-div.loginBody {
+div.signupBody {
   padding: 20px;
   animation: slideup 0.5s;
 }
 
-div.loginBody div {
+div.signupBody div {
   margin-bottom: 10px;
 }
 
-div.loginBody label {
+div.signupBody label {
   display: block;
   margin-bottom: 5px;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
-div.loginBody input[type="text"],
-div.loginBody input[type="password"] {
+div.signupBody input[type="text"],
+div.signupBody input[type="password"] {
   width: 100%;
   padding: 10px;
   border-radius: 3px;
@@ -63,7 +63,7 @@ div.loginBody input[type="password"] {
   transition: all 0.3s ease;
 }
 
-div.loginBody button {
+div.signupBody button {
   width: 100%;
   padding: 10px;
   background-color: #0073ff;
@@ -74,7 +74,7 @@ div.loginBody button {
   transition: all 0.3s ease;
 }
 
-div.loginBody button:hover {
+div.signupBody button:hover {
   background-color: #000;
 }
 
