@@ -1,21 +1,50 @@
 <html>
-    <h3>
-        Add New Record of Customer
-    </h3>
-    <body>
-        <form action = 'add-new-record.php' method = 'post'>
-            Current Date (yyy-mm-dd): <input type = 'text' name = 'new-date' /><br>
-            Name of Customer: <input type = 'text' name = 'new-customer-name' /><br>
-            Car Model: <input type = 'text' name = 'new-car-model' /><br>
-            Phone Number: <input type = 'text' name = 'new-phone-number' /><br>
-            Plate Number: <input type = 'text' name = 'new-plate-number' /><br>
-            Job Done: <input type = 'text' name = 'new-job-done' /><br>
-            Cost of Job: <input type = 'text' name = 'new-job-cost' /><br>
-            <input type = 'submit' value = 'Add Record' name = 'add-record' /><br> 
-        </form>
-        <form action = 'main-menu-employee.php' method = 'post'>
-            <input type = 'submit' value = 'Back to Main Menu' /><br> 
-        </form>
+<head>
+    <title> Autofrost - Record Management System </title>
+    <link rel = "stylesheet" type = "text/css" href = "../css/newrecord.css"/>
+    <link rel = "icon" type = "image/png" href = "../css/images/ico.png"/>
+</head>
+
+<body id="newrecordBody">
+    <nav>
+        <ul>
+        <li onclick="location.href='main-menu-employee.php';">Home</li>
+        <li onclick="location.href='add-new-record.php';">Add New Record</li>
+        <li onclick="location.href='add-existing-record.php';">Add Existing Record</li>
+        <li onclick="location.href='view-record-employee.php';">View Records</li>
+        <li onclick="location.href='../login.php';">Logout</li>
+        <img src="../css/images/ico.png" alt="Logo" onclick="location.href='main-menu-employee.php';">
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="newrecordHeader">
+            <h1>AUTOFROST</h1>
+            <h3>Add New Record</h3>
+        </div>
+        
+        <div class="newrecordBody">
+            <form action = 'add-new-record.php' method = 'post'>
+                Current Date (yyyy-mm-dd): <input type = 'text' name = 'new-date' /><br>
+                Name of Customer: <input type = 'text' name = 'new-customer-name' /><br>
+                Car Model: <input type = 'text' name = 'new-car-model' /><br>
+                Phone Number: <input type = 'text' name = 'new-phone-number' /><br>
+                Plate Number: <input type = 'text' name = 'new-plate-number' /><br>
+                Job Done: <input type = 'text' name = 'new-job-done' /><br>
+                Cost of Job: <input type = 'text' name = 'new-job-cost' /><br> <br>
+                <div class="btn-group">
+                    <button type="submit" name="add-record">Add Record</button>
+                </div>
+            </form>
+
+            <form action = 'main-menu-employee.php' method = 'post'>
+                <div class="btn-group">
+                        <button type="submit">Back to Main Menu</button>
+                </div> 
+            </form>
+            <div class="error"> </div>
+        </div>
+
 
         <?php
             if(isset($_POST['add-record'])){
@@ -24,12 +53,14 @@
                     && !empty($_POST['new-job-cost'])){
                     // open connection to mysql
                     $sqlConnect = mysqli_connect('localhost','root','');
-                    if(!$sqlConnect) die("Failed to connect to the database");
+                    if(!$sqlConnect)
+                        die("Failed to connect to the database");
 
                     // choose the database
                     $dbName = 'inventory_system';
                     $selectDB = mysqli_select_db($sqlConnect,$dbName);
-                    if(!$selectDB) die("Failed to select the following databaseL: " . $dbName);
+                    if(!$selectDB) 
+                        die("Failed to select the following databaseL: " . $dbName);
                     
                     $newDate = $_POST['new-date'];
                     $newCustomerName = $_POST['new-customer-name'];
@@ -68,5 +99,4 @@
         ?>
 
     </body>
-    
 </html>

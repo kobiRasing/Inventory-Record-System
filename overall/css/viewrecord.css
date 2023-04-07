@@ -7,29 +7,60 @@ body#recordBody {
     background-color: #f2f2f2;
 }
 
-div.recordHeader {
-    background-color: #24292e;
-    color: #0073ff;
-    padding: 20px;
-    text-align: center;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    position: relative;
-    animation: fadeIn 0.5s;
-}
-  
-div.recordHeader h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-    position: relative;
-    animation: slideInDown 0.5s ease;
+nav {
+    text-align: right;
+    background: #fff;
+    border-radius: 50px;
+    height: 80px;
+    padding: 0.1%;
+    box-shadow: 0 25px 10px -20px rgba(0,0,0,0.4);
+    animation:slideInDown 0.5s;
 }
 
-div.recordHeader h3 {
+nav img {
+    float: left;
+    display: inline-block;
+    height: 70px;
+    margin-top: -11px;
+  }  
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    padding: 13px 35px;
+    margin-right: 15px;
     font-size: 18px;
-    color: #ffffff;
+    font-weight: 500;
+    color: #777;
+    cursor: pointer;
     position: relative;
-    animation: slideInUp 0.5s ease;
+    z-index: 2;
+    transition: color 0.5s;
+}
+
+nav ul li::after {
+    content: '';
+    background-color: #0073ff;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    opacity: 0;
+    transition: top 0.5s, opacity 0.5s;
+
+}
+
+nav ul li:hover {
+    color: #fff;
+}
+
+nav ul li:hover::after {
+    top: 50%;
+    opacity: 1;
 }
 
 /* Set style for the table */
@@ -41,6 +72,7 @@ table {
     box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
     border-radius: 10px;
     overflow: hidden;
+    animation:fadeIn 0.5s;
 }
 
 /* Set style for the table header */
@@ -92,13 +124,27 @@ th {
     animation-duration: 0.5s;
 }
 
-@keyframes slideIn {
+@keyframes slideInDown {
     0% {
         transform: translateY(-100%);
+        opacity: 0;
     }
     100% {
-        transform: translateY(0%);
+        transform: translateY(0);
+        opacity: 1;
     }
+}
+
+@keyframes slideInUp {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    
 }
 
 @keyframes fadeIn {
@@ -108,4 +154,4 @@ th {
     to {
       opacity: 1;
     }
-}
+  }

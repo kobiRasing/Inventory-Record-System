@@ -1,40 +1,72 @@
 <html>
-    <h3>
-        Add Existing Record of Customer
-    </h3>
-    <body>
-        <?php
-            // open connection to mysql
-            $sqlConnect = mysqli_connect('localhost','root','');
-            if(!$sqlConnect) die("Failed to connect to the database");
+<head>
+    <title> Autofrost - Record Management System </title>
+    <link rel = "stylesheet" type = "text/css" href = "../css/existingrecord.css"/>
+    <link rel = "icon" type = "image/png" href = "../css/images/ico.png"/>
+</head>
 
-            // choose the database
-            $dbName = 'inventory_system';
-            $selectDB = mysqli_select_db($sqlConnect,$dbName);
-            if(!$selectDB) die("Failed to select the following databaseL: " . $dbName);
+<body id="existingrecordBody">
+    <nav>
+        <ul>
+        <li onclick="location.href='main-menu-employee.php';">Home</li>
+            <li onclick="location.href='add-new-record.php';">Add New Record</li>
+            <li onclick="location.href='add-existing-record.php';">Add Existing Record</li>
+            <li onclick="location.href='view-record-employee.php';">View Records</li>
+            <li onclick="location.href='../login.php';">Logout</li>
+            <img src="../css/images/ico.png" alt="Logo" onclick="location.href='main-menu-employee.php';">
+        </ul>
+    </nav>
 
-            // retrieve customer_record_table from sql and create dropdown list
-            $customerRecordList = mysqli_query($sqlConnect, "SELECT * FROM customer_record_table ORDER BY CustomerName");
-            echo "<form action = 'add-existing-record.php' method = 'post'>";
-                echo "Customer List: ";
-                echo "<select name = 'selectedCustomer'>"; // yung name neto gagamitin sa $_POST['selectedCustomer'] para makuha kung alin yung pinili sa dropdown
-                    echo "<option value = ''> ------SELECT CUSTOMER------ </option>";
-            while($customer = mysqli_fetch_array($customerRecordList)){
-                    echo "<option value = '$customer[CustomerName]'> " . $customer['CustomerName'] . "</option>" ; // value yung nagdidisplay ng name sa dropdown
-            }
-            echo "</select>";
-            mysqli_close($sqlConnect);
+    <?php
+        // open connection to mysql
+        $sqlConnect = mysqli_connect('localhost','root','');
+        if(!$sqlConnect) die("Failed to connect to the database");
+
+        // choose the database
+        $dbName = 'inventory_system';
+        $selectDB = mysqli_select_db($sqlConnect,$dbName);
+        if(!$selectDB) die("Failed to select the following databaseL: " . $dbName);
+
+        // retrieve customer_record_table from sql and create dropdown list
+        $customerRecordList = mysqli_query($sqlConnect, "SELECT * FROM customer_record_table ORDER BY CustomerName");
+        echo "<div class='container'>";
+        echo "<div class='existingrecordHeader'>";
+        echo "<h1>AUTOFROST</h1>";
+        echo "<h3>Add Existing Record</h3>";
+        echo "</div>";
+        echo "<div class='existingrecordBody'>";
+        echo "<form action = 'add-existing-record.php' method = 'post'>";
+        echo "Customer List: ";
+        echo "<select name = 'selectedCustomer'>"; // yung name neto gagamitin sa $_POST['selectedCustomer'] para makuha kung alin yung pinili sa dropdown
+        echo "<option value = ''> ------SELECT CUSTOMER------ </option>";
+        echo "</div>";
+        echo "</form>";
+
+        while($customer = mysqli_fetch_array($customerRecordList)){
+            echo "<option value = '$customer[CustomerName]'> " . $customer['CustomerName'] . "</option>" ; // value yung nagdidisplay ng name sa dropdown
+        }
+
+        echo "</select>";
+        mysqli_close($sqlConnect);
         ?>
-
-        <form action = 'add-existing-record.php' method = 'post'>
-            <br>Current Date (yyy-mm-dd): <input type = 'text' name = 'new-date' /><br>
-            Job Done: <input type = 'text' name = 'new-job-done' /><br>
-            Cost of Job: <input type = 'text' name = 'new-job-cost' /><br>
-            <input type = 'submit' value = 'Add Record' name = 'add-record' /><br> 
-        </form>
-        <form action = 'main-menu-employee.php' method = 'post'>
-            <input type = 'submit' value = 'Back to Main Menu' /><br> 
-        </form>
+            
+        <div class="existingrecordBody">
+            <form action = 'add-existing-record.php' method = 'post'>
+                Current Date (yyy-mm-dd): <input type = 'text' name = 'new-date' /><br>
+                Job Done: <input type = 'text' name = 'new-job-done' /><br>
+                Cost of Job: <input type = 'text' name = 'new-job-cost' /><br> <br>
+                <div class="btn-group">
+                    <button type="submit" name="add-record">Add Record</button>
+                </div>
+            </form>
+            
+            <form action = 'main-menu-employee.php' method = 'post'>
+                <div class="btn-group">
+                        <button type="submit">Back to Main Menu</button>
+                </div>     
+            </form>
+            <div class="error"> </div>
+        </div>
 
         <?php
             if(isset($_POST['add-record'])){

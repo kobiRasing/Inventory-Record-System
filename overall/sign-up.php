@@ -1,16 +1,17 @@
 <html>
-    <head>
-        <title> Autofrost - Record Management System </title>
-        <link rel = "stylesheet" type = "text/css" href = "css/signup.css"/>
-        <link rel = "icon" type = "image/png" href = "css/images/ico.png"/>
-    </head>
+<head>
+    <title> Autofrost - Record Management System </title>
+    <link rel = "stylesheet" type = "text/css" href = "css/signup.css"/>
+    <link rel = "icon" type = "image/png" href = "css/images/ico.png"/>
+</head>
 
-    <body id="signupBody">
+<body id="signupBody">
     <div class="container">
         <div class="signupHeader">
             <h1>AUTOFROST</h1>
             <h3>Record Management System</h3>
         </div>
+
         <div class="signupBody">
             <form action = 'sign-up.php' method = 'post'>
                 Full Name: <input type = 'text' name = 'new-name' /><br>
@@ -22,12 +23,14 @@
                     <button type="submit" name="signup">Sign Up</button>
                 </div>
             </form>
+
             <form action = 'login.php' method = 'post'>
                 <div class="btn-group">
                     <button type="submit">Already have an account?</button>
                 </div>
             </form>
-            <div class="error">
+            <div class="error"> </div>
+        </div>
 
         <?php
             if(isset($_POST['signup'])){
@@ -36,12 +39,14 @@
                     if($_POST['confirm-new-pass'] == $_POST['new-pass']){
                         // open connection to mysql
                         $sqlConnect = mysqli_connect('localhost','root','');
-                        if(!$sqlConnect) die("Failed to connect to the database");
+                        if(!$sqlConnect) 
+                            die("Failed to connect to the database");
 
                         // choose the database
                         $dbName = 'inventory_system';
                         $selectDB = mysqli_select_db($sqlConnect,$dbName);
-                        if(!$selectDB) die("Failed to select the following databaseL: " . $dbName);
+                        if(!$selectDB) 
+                            die("Failed to select the following databaseL: " . $dbName);
                         
                         $newName = $_POST['new-name'];
                         $newUser = $_POST['new-user'];

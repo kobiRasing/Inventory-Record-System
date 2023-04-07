@@ -1,47 +1,55 @@
 <html>
-    <head>
-        <title> Autofrost - Record Management System </title>
-        <link rel = "stylesheet" type = "text/css" href = "css/login.css"/>
-        <link rel = "icon" type = "image/png" href = "css/images/ico.png"/>
-    </head>
+<head>
+    <title> Autofrost - Record Management System </title>
+    <link rel = "stylesheet" type = "text/css" href = "css/login.css"/>
+    <link rel = "icon" type = "image/png" href = "css/images/ico.png"/>
+</head>
 
-    <body id="loginBody">
+<body id="loginBody">
     <div class="container">
         <div class="loginHeader">
             <h1>AUTOFROST</h1>
             <h3>Record Management System</h3>
         </div>
+
         <div class="loginBody">
             <form action='login.php' method='post'>
                 <div class="input-group">
                     <label for="">Username</label>
                     <input placeholder="Username" type="text" name="user"/>
                 </div>
+
                 <div class="input-group">
                     <label for="">Password</label>
                     <input placeholder="Password" type="password" name="pass"/>
                 </div>
+
                 <div class="btn-group">
                     <button type="submit" name="login">Login</button>
                 </div>
             </form>
+
             <form action='sign-up.php' method='post'>
                 <div class="btn-group">
-                    <button type="submit" name="login">Sign up</button>
+                    <button type="submit" name="login">Employee Sign up</button>
                 </div>
             </form>
-            <div class="error">
+
+            <div class="error"> </div>
+        </div>
 
     <?php
         if(isset($_POST['login'])){
             // open connection to mysql
             $sqlConnect = mysqli_connect('localhost','root','');
-            if(!$sqlConnect) die("Failed to connect to the database");
+            if(!$sqlConnect) 
+                die("Failed to connect to the database");
 
             // choose the database
             $dbName = 'inventory_system';
             $selectDB = mysqli_select_db($sqlConnect,$dbName);
-            if(!$selectDB) die("Failed to select the following databaseL: " . $dbName);
+            if(!$selectDB) 
+                die("Failed to select the following databaseL: " . $dbName);
 
             $input_user = $_POST['user'];
             $input_pass = $_POST['pass'];

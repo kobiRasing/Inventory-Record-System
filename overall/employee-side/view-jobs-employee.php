@@ -6,16 +6,16 @@
 </head>
 
 <body id = "jobsBody">
-    <nav>
+    <nav>	
         <ul>
-            <li onclick="location.href='main-menu-owner.php';">Home</li>
-            <li onclick="location.href='view-record-owner.php';">Customer Records</li>
-            <li onclick="location.href='view-staff-owner.php';">Staff Information</li>
+			<li onclick="location.href='main-menu-employee.php';">Home</li>
+            <li onclick="location.href='add-new-record.php';">Add New Record</li>
+            <li onclick="location.href='add-existing-record.php';">Add Existing Record</li>
+			<li onclick="location.href='view-record-employee.php';">View Records</li>
             <li onclick="location.href='../login.php';">Logout</li>
-            <img src="../css/images/ico.png" alt="Logo"onclick="location.href='main-menu-owner.php';">
+            <img src="../css/images/ico.png" alt="Logo" onclick="location.href='main-menu-employee.php';">
         </ul>
     </nav>
-    
 	<?php
 		// open connection to mysql
 		$sqlConnect = mysqli_connect('localhost','root','');

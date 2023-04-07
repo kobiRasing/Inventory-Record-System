@@ -1,15 +1,21 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>Autofrost - Staff Record Table</title>
     <link rel="stylesheet" type="text/css" href="../css/viewstaff.css">
-	<link rel = "icon" type = "image/png" href = "css/images/ico.png"/>
+    <link rel = "icon" type = "image/png" href = "../css/images/ico.png"/>
 </head>
+
 <body id = "staffBody">
-    <div class="staffHeader">
-        <h1>AUTOFROST</h1>
-        <h3>Record Management System</h3>
-    </div>
+	<nav>	
+        <ul>
+			<li onclick="location.href='main-menu-owner.php';">Home</li>
+            <li onclick="location.href='view-record-owner.php';">Customer Records</li>
+            <li onclick="location.href='view-staff-owner.php';">Staff Information</li>
+            <li onclick="location.href='../login.php';">Logout</li>
+            <img src="../css/images/ico.png" alt="Logo" onclick="location.href='main-menu-owner.php';">
+        </ul>
+    </nav>
+	
 	<table>
 		<tr>
 			<th>Name</th>
