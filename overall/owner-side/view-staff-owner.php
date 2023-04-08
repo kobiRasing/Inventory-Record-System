@@ -21,11 +21,12 @@
 	
 	<table>
 		<tr>
-			<th>Name</th>
-			<th>Phone Number</th>
-			<th>Address</th>
-            <th>Age</th>
-            <th>Birthday</th>
+			<th style="width: 10%;">Name</th>
+			<th style="width: 10%;">Phone Number</th>
+			<th style="width: 40%;">Address</th>
+            <th style="width: 3%;">Age</th>
+            <th style="width: 10%;">Birthday</th>
+			<th>Edit</th>
 			<th>Delete</th>
 		</tr>
 		<?php
@@ -41,22 +42,28 @@
                 die("Failed to select the following databaseL: " . $dbName);
 
 			// Query database to get customer records
-			$sql = "SELECT StaffID, StaffName, StaffPhoneNumber, StaffAddress, StaffAge, StaffBirthday FROM staff_info_table";
+			$sql = "SELECT * FROM staff_info_table";
 			$result = mysqli_query($sqlConnect, $sql);
 
 			if (mysqli_num_rows($result) > 0) {
 				// Output each customer record
 				while($row = mysqli_fetch_assoc($result)) {
 					echo "<tr>";
-					echo "<td>" . $row["StaffName"] . "</td>";
-					echo "<td>" . $row["StaffPhoneNumber"] . "</td>";
-					echo "<td>" . $row["StaffAddress"] . "</td>";
-					echo "<td>" . $row["StaffAge"] . "</td>";
-					echo "<td>" . $row["StaffBirthday"] . "</td><td>
-					<form method='post' action='delete-staff.php'>
-                    <input type='hidden' name='StaffID' value='".$row["StaffID"]."'>
-                    <button type='submit'>Delete</button>
-					</form></td></tr>";
+					echo "<form method='post' action='edit-staff.php'>";
+					echo "<td><input type='text' name='StaffName' value='" . $row["StaffName"] . "'></td>";
+					echo "<td><input type='text' name='StaffPhoneNumber' value='" . $row["StaffPhoneNumber"] . "'></td>";
+					echo "<td><input type='text' name='StaffAddress' value='" . $row["StaffAddress"] . "'></td>";
+					echo "<td><input type='text' name='StaffAge' value='" . $row["StaffAge"] . "'></td>";
+					echo "<td><input type='text' name='StaffBirthday' value='" . $row["StaffBirthday"] . "'></td>";
+					echo "<input type='hidden' name='StaffID' value='".$row["StaffID"]."'>";
+					echo "<td><button type='submit'>Save</button></td>";
+					echo "</form>";
+
+					echo "<form method='post' action='delete-staff.php'>
+                    <td><input type='hidden' name='StaffID' value='".$row["StaffID"]."'>
+                    <button type='submit'>Delete</button></td>
+					</form>
+					</tr>";
 				}
 			} else {
 				echo "<table><tr><td>0 Results!.</td></tr></table>";

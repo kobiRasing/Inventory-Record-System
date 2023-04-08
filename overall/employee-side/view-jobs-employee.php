@@ -17,10 +17,10 @@
         </ul>
     </nav>
 
-    <form method="post">
+    <form id="search" method="post">
         <input type="text" name="search" placeholder="What are you looking for?">
         <button type="submit">Search</button>
-        <button type="submit" formaction="view-record-employee.php">Back</button>
+        <button type="submit" formaction="view-record-owner.php">Back</button>
     </form>
 
     <table>
@@ -28,8 +28,9 @@
             <th>Job Done</th>
             <th>Date of Job</th>
             <th>Job Cost</th>
+            <th>Edit</th>
             <th>Delete</th>
-        </tr>";
+        </tr>
 
         <?php
             // open connection to mysql
@@ -46,11 +47,11 @@
             if (isset($_GET['RecordID'])) {
                 $RecordID = $_GET['RecordID'];
                 // Retrieve job records from job_record_table with matching RecordID
-                $sql = "SELECT JobID, JobDone, DateofJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID' ORDER BY DateOfJob DESC";
+                $sql = "SELECT JobID, JobDone, DateOfJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID' ORDER BY DateOfJob DESC";
 
                 if (isset($_POST['search'])) {
                     $search = $_POST['search'];
-                    $sql = "SELECT JobID, JobDone, DateofJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID' AND JobDone LIKE '%$search%' ORDER BY DateOfJob DESC";
+                    $sql = "SELECT JobID, JobDone, DateOfJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID' AND JobDone LIKE '%$search%' ORDER BY DateOfJob DESC";
                 }
 
                 $result = mysqli_query($sqlConnect, $sql);
@@ -59,13 +60,20 @@
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo "<tr>";
-                        echo "<td>" . $row["JobDone"] . "</td>";
-                        echo "<td>" . $row["DateofJob"] . "</td>";
-                        echo "<td>" . $row["JobCost"] . "</td><td>
-                        <form method='post' action='delete-job-record.php'>
-                        <input type='hidden' name='JobID' value='" . $row["JobID"] . "'>
-                        <button type='submit'>Delete</button>
-                        </form></td></tr>";
+                        echo "<form method='post' action='edit-jobs.php'>";
+                        echo "<td><input type='text' name='JobDone' value='" . $row["JobDone"] . "'></td>";
+                        echo "<td><input type='text' name='DateOfJob' value='" . $row["DateOfJob"] . "'></td>";
+                        echo "<td><input type='text' name='JobCost' value='" . $row["JobCost"] . "'></td>";
+                        echo "<input type='hidden' name='JobID' value='" . $row["JobID"] . "'>";
+                        echo "<input type='hidden' name='RecordID' value='" . $RecordID . "'>";                        
+                        echo "<td><button type='submit' name='save_button'>Save</button></td>";
+                        echo "</form>";
+
+                        echo "<form method='post' action='delete-jobs.php'>
+                        <td><input type='hidden' name='JobID' value='".$row["JobID"]."'>
+                        <button type='submit'>Delete</button></td>
+                        </form>
+                        </tr>";
                     }
                     echo "</table>";
                 } else {

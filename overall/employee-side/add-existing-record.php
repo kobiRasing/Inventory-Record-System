@@ -101,7 +101,7 @@
                     // enter information to database
                     mysqli_query($sqlConnect,$enterJobInfo);
 
-                    echo "Recorded Successfully!";
+                    echo "Record Added Successful!";
                     mysqli_close($sqlConnect);
                 }
                 else echo "Make sure all fields are filled up.";

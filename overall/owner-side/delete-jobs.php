@@ -15,13 +15,13 @@
     // retrieve RecordID and JobDone values from the form
     $JobID = $_POST['JobID'];
 
-    // delete the record from the job_record_table
+    // delete the record from the staff_info_table
     $sql = "DELETE FROM job_record_table WHERE JobID = '$JobID'";
     $result = mysqli_query($sqlConnect, $sql);
 
     // check if the record was successfully deleted
     if ($result) {
-        header("Location: view-record-employee.php");
+        header("Location: view-record-owner.php");
         exit();
     } else {
         echo "Error deleting record: " . mysqli_error($sqlConnect);

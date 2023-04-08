@@ -102,11 +102,6 @@ td button {
     margin: 0 auto;
 }
 
-td a {
-    text-align: center;
-    display: block; 
-}
-
 a {
     color: #fff;
     background-color: #0073ff;
@@ -126,7 +121,7 @@ a:hover {
 
 button {
     font-family: 'Exo 2', sans-serif;
-    padding: 0.3rem 0.5rem;
+    padding: 0.5rem 0.5rem;
     font-size: 18px;
     background-color: #0073ff;
     color: #fff;
@@ -135,7 +130,7 @@ button {
     text-decoration: none;
     transition: all 0.2s ease-in-out;
     margin: 10px;
-}
+  }
   
 button:hover {
     color: #fff;
@@ -147,24 +142,6 @@ button:hover {
 
 input[type="text"] {
     text-align: center;
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ffffff;
-    background-color: #fff;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    transition: all 0.3s ease;
-}
-
-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-}
-
-form#search input[type="text"] {
-    text-align: center;
     width: 25%;
     padding: 10px;
     border-radius: 5px;
@@ -174,11 +151,18 @@ form#search input[type="text"] {
     transition: all 0.3s ease;
 }
 
-form#search input[type="text"]:focus {
+input[type="text"]:focus {
     width: 50%;
     outline: none;
     border-color: #0073ff;
     box-shadow: 0 0 0 3px rgba(0, 115, 255, 0.3);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
 @keyframes slideInDown {

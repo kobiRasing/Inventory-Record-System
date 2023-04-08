@@ -70,7 +70,7 @@
                     $enterData = "INSERT INTO staff_info_table(StaffName, StaffPhoneNumber, StaffAddress, StaffAge, StaffBirthday)
                         VALUES('$newName','$newNumber','$newAddress','$newAge','$newBirthday')";
                     mysqli_query($sqlConnect,$enterData);
-                    echo "Registration Successful!";
+                    echo "Staff Added Successful!";
 
                     mysqli_close($sqlConnect);
                 }

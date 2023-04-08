@@ -19,19 +19,21 @@
         </ul>
     </nav>
 
-	<form method="post">
+	<form id="search"method="post">
         <input type="text" name="search" placeholder="What are you looking for?">
         <button type="submit">Search</button>
     </form>
 
 	<table>
 		<tr>
-			<th>Record ID</th>
-			<th>Customer Name</th>
-			<th>Car Model</th>
-			<th>Phone Number</th>
-			<th>Plate Number</th>
-            <th>Check Jobs</th>
+			<th style="width: 5%;">Record ID</th>
+			<th style="width: 10%;">Customer Name</th>
+			<th style="width: 15%;">Car Model</th>
+			<th style="width: 10%;">Phone Number</th>
+			<th style="width: 10%;">Plate Number</th>
+			<th style="width: 10%;">Edit</th>
+			<th style="width: 10%;">Delete</th>
+            <th style="width: 10%;">Check Jobs</th>
 		</tr>
 
 		<?php
@@ -53,20 +55,30 @@
                 $search = mysqli_real_escape_string($sqlConnect, $_POST['search']);
                 $sql = "SELECT RecordID, CustomerName, CarModel, PhoneNumber, PlateNumber FROM customer_record_table WHERE CustomerName LIKE '%$search%' OR CarModel LIKE '%$search%' OR PhoneNumber LIKE '%$search%' OR PlateNumber LIKE '%$search%'";
             }
-
+			
 			$result = mysqli_query($sqlConnect, $sql);
 
 			if (mysqli_num_rows($result) > 0) {
 				// Output each customer record
 				while($row = mysqli_fetch_assoc($result)) {
 					echo "<tr>";
-					echo "<td>" . $row["RecordID"] . "</td>";
-					echo "<td>" . $row["CustomerName"] . "</td>";
-					echo "<td>" . $row["CarModel"] . "</td>";
-					echo "<td>" . $row["PhoneNumber"] . "</td>";
-					echo "<td>" . $row["PlateNumber"] . "</td>";
-                    echo "<td><a href='view-jobs-owner.php?RecordID=" . $row["RecordID"] . "'>View Jobs</a></td>";
-					echo "</tr>";
+					echo "<form method='post' action='edit-record.php'>";
+					echo "<td><input type='text' name='RecordID' value='" . $row["RecordID"] . "'></td>";
+					echo "<td><input type='text' name='CustomerName' value='" . $row["CustomerName"] . "'></td>";
+					echo "<td><input type='text' name='CarModel' value='" . $row["CarModel"] . "'></td>";
+					echo "<td><input type='text' name='PhoneNumber' value='" . $row["PhoneNumber"] . "'></td>";
+					echo "<td><input type='text' name='PlateNumber' value='" . $row["PlateNumber"] . "'></td>";
+					echo "<input type='hidden' name='is_save_clicked' value='false'>";
+					echo "<td><button type='submit' name='save_button'>Save</button></td>";
+					echo "</form>";
+			
+					echo "<form method='post' action='delete-record.php'>
+					<td><input type='hidden' name='RecordID' value='".$row["RecordID"]."'>
+					<button type='submit'>Delete</button></td>
+					</form>";
+					
+					echo "<td><a href='view-jobs-owner.php?RecordID=" . $row["RecordID"] . "&is_save_clicked=false'>View Jobs</a></td>
+					</tr>";
 				}
 			} else {
 				echo "<table><tr><td>0 Results!.</td></tr></table>";
