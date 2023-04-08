@@ -31,7 +31,7 @@
         if (isset($_GET['RecordID'])) {
             $RecordID = $_GET['RecordID'];
                 // Retrieve job records from job_record_table with matching RecordID
-                $sql = "SELECT JobDone, DateofJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID' ORDER BY DateOfJob";
+                $sql = "SELECT JobDone, DateofJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID' ORDER BY DateOfJob DESC";
                 $result = mysqli_query($sqlConnect, $sql);
 
                 // Display table of job records
