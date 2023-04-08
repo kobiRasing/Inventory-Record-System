@@ -38,12 +38,12 @@
         echo "<form action = 'add-existing-record.php' method = 'post'>";
         echo "Customer List: ";
         echo "<select name = 'selectedCustomer'>"; // yung name neto gagamitin sa $_POST['selectedCustomer'] para makuha kung alin yung pinili sa dropdown
-        echo "<option value = ''> ------SELECT CUSTOMER------ </option>";
+        echo "<option value = ''> ------SELECT PLATE NUMBER------ </option>";
         echo "</div>";
         echo "</form>";
 
         while($customer = mysqli_fetch_array($customerRecordList)){
-            echo "<option value = '$customer[CustomerName]'> " . $customer['CustomerName'] . "</option>" ; // value yung nagdidisplay ng name sa dropdown
+            echo "<option value = '$customer[PlateNumber]'> " . $customer['PlateNumber'] . "</option>" ; // value yung nagdidisplay ng name sa dropdown
         }
 
         echo "</select>";
@@ -89,7 +89,7 @@
                     $getNewId = "SELECT * FROM customer_record_table";
                     $newIdList = mysqli_query($sqlConnect,$getNewId);
                     while($row = mysqli_fetch_array($newIdList)){
-                        if($row['CustomerName'] == $chosenCustomer){
+                        if($row['PlateNumber'] == $chosenCustomer){
                             $newId = $row['RecordID'];
                         }
                     }
@@ -101,7 +101,7 @@
                     // enter information to database
                     mysqli_query($sqlConnect,$enterJobInfo);
 
-                    echo "Registration Successful!";
+                    echo "Recorded Successfully!";
                     mysqli_close($sqlConnect);
                 }
                 else echo "Make sure all fields are filled up.";
