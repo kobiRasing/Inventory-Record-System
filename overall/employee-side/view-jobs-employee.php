@@ -20,6 +20,7 @@
     <form method="post">
         <input type="text" name="search" placeholder="What are you looking for?">
         <button type="submit">Search</button>
+        <button type="submit" formaction="view-record-employee.php">Back</button>
     </form>
 
     <table>
