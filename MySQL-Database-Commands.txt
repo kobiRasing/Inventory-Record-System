@@ -28,6 +28,7 @@ VALUES("Minato Namikaze","Ford Kuga","345","8DKK147"),
 ("Kurenai Yuhi","Mazda CX-9","234","8DBG263");
 
 CREATE TABLE job_record_table(
+JobID int primary key auto_increment,
 RecordID int not null,
 DateOfJob DATE not null,
 JobDone varchar(30) not null,
