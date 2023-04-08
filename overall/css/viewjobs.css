@@ -114,6 +114,26 @@ a:hover {
     transition: all 0.2s ease-in-out;
 }
 
+button {
+    font-family: 'Exo 2', sans-serif;
+    padding: 0.3rem 0.5rem;
+    font-size: 18px;
+    background-color: #0073ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+button:hover {
+    color: #fff;
+    background-color: #000;
+    padding: 0.8rem;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+  }
+
 tr {
     animation-name: fadeIn;
     animation-duration: 0.5s;
