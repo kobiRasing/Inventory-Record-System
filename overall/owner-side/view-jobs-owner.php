@@ -45,29 +45,33 @@
 
             if (isset($_GET['RecordID'])) {
                 $RecordID = $_GET['RecordID'];
-                    // Retrieve job records from job_record_table with matching RecordID
-                    $sql = "SELECT JobID, JobDone, DateofJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID' ORDER BY DateOfJob DESC";
-                    $result = mysqli_query($sqlConnect, $sql);
+                // Retrieve job records from job_record_table with matching RecordID
+                $sql = "SELECT JobID, JobDone, DateofJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID' ORDER BY DateOfJob DESC";
+                    
+                if (isset($_POST['search'])) {
+                    $search = $_POST['search'];
+                    $sql = "SELECT JobID, JobDone, DateofJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID' AND JobDone LIKE '%$search%' ORDER BY DateOfJob DESC";
+                }
 
-                    // Display table of job records with delete buttons
-                    if (mysqli_num_rows($result) > 0) {
-        
-                        while($row = mysqli_fetch_assoc($result)) {
-                            echo "<tr>";
-                            echo "<td>" . $row["JobDone"] . "</td>";
-                            echo "<td>" . $row["DateofJob"] . "</td>";
-                            echo "<td>" . $row["JobCost"] . "</td><td>
-                            <form method='post' action='delete-job-record.php'>
-                            <input type='hidden' name='JobID' value='".$row["JobID"]."'>
-                            <button type='submit'>Delete</button>
-                            </form></td></tr>";
-                        }
-                        echo "</table>";
-                    } else {
-                        echo "<table><tr><td>No job records found for this customer.</td></tr></table>";
+                $result = mysqli_query($sqlConnect, $sql);
+    
+                // Display table of job records with delete buttons
+                if (mysqli_num_rows($result) > 0) {
+                    while($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>" . $row["JobDone"] . "</td>";
+                        echo "<td>" . $row["DateofJob"] . "</td>";
+                        echo "<td>" . $row["JobCost"] . "</td><td>
+                        <form method='post' action='delete-job-record.php'>
+                        <input type='hidden' name='JobID' value='".$row["JobID"]."'>
+                        <button type='submit'>Delete</button>
+                        </form></td></tr>";
                     }
-
-                    mysqli_close($sqlConnect);
+                    echo "</table>";
+                } else {
+                    echo "<table><tr><td>0 Results!</td></tr></table>";
+                }
+                mysqli_close($sqlConnect);
             } else {
                 echo "<table><tr><td>No record ID provided.</td></tr></table>";
             }

@@ -123,7 +123,7 @@ button {
     border-radius: 5px;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    margin: 5px 0;
+    margin: 10px;
 }
   
 button:hover {
