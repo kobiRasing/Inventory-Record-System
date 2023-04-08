@@ -48,6 +48,12 @@
 
 			// Query database to get customer records
 			$sql = "SELECT * FROM customer_record_table";
+			
+			if (isset($_POST['search'])) {
+                $search = mysqli_real_escape_string($sqlConnect, $_POST['search']);
+                $sql = "SELECT RecordID, CustomerName, CarModel, PhoneNumber, PlateNumber FROM customer_record_table WHERE CustomerName LIKE '%$search%' OR CarModel LIKE '%$search%' OR PhoneNumber LIKE '%$search%' OR PlateNumber LIKE '%$search%'";
+            }
+
 			$result = mysqli_query($sqlConnect, $sql);
 
 			if (mysqli_num_rows($result) > 0) {
