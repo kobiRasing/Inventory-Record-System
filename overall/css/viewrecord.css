@@ -51,7 +51,6 @@ nav ul li::after {
     z-index: -1;
     opacity: 0;
     transition: top 0.5s, opacity 0.5s;
-
 }
 
 nav ul li:hover {
@@ -63,9 +62,8 @@ nav ul li:hover::after {
     opacity: 1;
 }
 
-/* Set style for the table */
 table {
-    margin: 50px auto 0;
+    margin: 20px auto 0;
     border-collapse: collapse;
     width: 80%;
     background-color: #fff;
@@ -75,28 +73,28 @@ table {
     animation:fadeIn 0.5s;
 }
 
-/* Set style for the table header */
 th {
     text-align: left;
     font-size: 1.2em;
     color: #fff;
     background-color: #0073ff;
     padding: 1rem;
+    animation-name: slideIn;
+    animation-duration: 0.5s;
 }
 
-/* Set style for the table rows */
 tr {
     border-bottom: 1px solid #ddd;
+    animation-name: fadeIn;
+    animation-duration: 0.5s;
 }
 
-/* Set style for the table data */
 td {
     font-size: 1.1em;
     color: #2d2d2d;
     padding: 1rem;
 }
 
-/* Set style for links */
 a {
     color: #fff;
     background-color: #0073ff;
@@ -114,14 +112,50 @@ a:hover {
     transition: all 0.2s ease-in-out;
 }
 
-tr {
-    animation-name: fadeIn;
-    animation-duration: 0.5s;
+button {
+    font-family: 'Exo 2', sans-serif;
+    padding: 0.5rem 0.5rem;
+    font-size: 18px;
+    background-color: #0073ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    margin: 10px;
+  }
+  
+button:hover {
+    color: #fff;
+    background-color: #000;
+    padding: 0.8rem;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
 }
 
-th {
-    animation-name: slideIn;
-    animation-duration: 0.5s;
+input[type="text"] {
+    text-align: center;
+    width: 25%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    width: 50%;
+    outline: none;
+    border-color: #0073ff;
+    box-shadow: 0 0 0 3px rgba(0, 115, 255, 0.3);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }
 
 @keyframes slideInDown {
@@ -154,4 +188,4 @@ th {
     to {
       opacity: 1;
     }
-  }
+}

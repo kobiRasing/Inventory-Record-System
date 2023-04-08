@@ -26,6 +26,7 @@
 			<th>Address</th>
             <th>Age</th>
             <th>Birthday</th>
+			<th>Delete</th>
 		</tr>
 		<?php
             // open connection to mysql
@@ -40,7 +41,7 @@
                 die("Failed to select the following databaseL: " . $dbName);
 
 			// Query database to get customer records
-			$sql = "SELECT StaffName, StaffPhoneNumber, StaffAddress, StaffAge, StaffBirthday FROM staff_info_table";
+			$sql = "SELECT StaffID, StaffName, StaffPhoneNumber, StaffAddress, StaffAge, StaffBirthday FROM staff_info_table";
 			$result = mysqli_query($sqlConnect, $sql);
 
 			if (mysqli_num_rows($result) > 0) {
@@ -51,8 +52,11 @@
 					echo "<td>" . $row["StaffPhoneNumber"] . "</td>";
 					echo "<td>" . $row["StaffAddress"] . "</td>";
 					echo "<td>" . $row["StaffAge"] . "</td>";
-					echo "<td>" . $row["StaffBirthday"] . "</td>";
-					echo "</tr>";
+					echo "<td>" . $row["StaffBirthday"] . "</td><td>
+					<form method='post' action='delete-staff.php'>
+                    <input type='hidden' name='StaffID' value='".$row["StaffID"]."'>
+                    <button type='submit'>Delete</button>
+					</form></td></tr>";
 				}
 			} else {
 				echo "<table><tr><td>0 Results!.</td></tr></table>";

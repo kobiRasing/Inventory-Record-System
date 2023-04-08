@@ -19,6 +19,11 @@
         </ul>
     </nav>
 
+	<form method="post">
+        <input type="text" name="search" placeholder="What are you looking for?">
+        <button type="submit">Search</button>
+    </form>
+
 	<table>
 		<tr>
 			<th>Record ID</th>
