@@ -13,6 +13,28 @@
 
     <div class="container">
         <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+        <div class="card">
+                <lord-icon
+                src="https://cdn.lordicon.com/puvaffet.json"
+                    trigger="loop-on-hover"
+                    colors="primary:#ffffff,secondary:#e8e230"
+                    style="width:100px;height:100px">
+                </lord-icon>
+                <h2>Add New Record</h2>
+                <a href="add-new-record.php">Go</a>
+            </div>
+
+            <div class="card">
+                <lord-icon
+                    src="https://cdn.lordicon.com/wloilxuq.json"
+                    trigger="loop-on-hover"
+                    colors="primary:#ffffff,secondary:#e8e230"
+                    style="width:100px;height:100px">
+                </lord-icon>
+                <h2>Add Existing Record</h2>
+                <a href="add-existing-record.php">Go</a>
+            </div>
+
             <div class="card">
                 <lord-icon
                     src="https://cdn.lordicon.com/msoeawqm.json"
@@ -26,12 +48,23 @@
 
             <div class="card">
                 <lord-icon
+                    src="https://cdn.lordicon.com/uukerzzv.json"
+                    trigger="loop-on-hover"
+                    colors="primary:#ffffff,secondary:#e8e230"
+                    style="width:100px;height:100px">
+                </lord-icon>
+                <h2>Add Staff</h2>
+                <a href="add-staff.php">Go</a>
+            </div>
+
+            <div class="card">
+                <lord-icon
                     src="https://cdn.lordicon.com/eszyyflr.json"
                     trigger="loop-on-hover"
                     colors="primary:#ffffff,secondary:#e8e230"
                     style="width:100px;height:100px">
                 </lord-icon>
-                <h2>Staff Information</h2>
+                <h2>Manage Staff</h2>
                 <a href="view-staff-owner.php">Go</a>
             </div>
 

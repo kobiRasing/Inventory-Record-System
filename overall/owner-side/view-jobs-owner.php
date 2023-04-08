@@ -9,8 +9,11 @@
     <nav>
         <ul>
             <li onclick="location.href='main-menu-owner.php';">Home</li>
+            <li onclick="location.href='add-new-record.php';">Add New Record</li>
+            <li onclick="location.href='add-existing-record.php';">Add Existing Record</li>
             <li onclick="location.href='view-record-owner.php';">Customer Records</li>
-            <li onclick="location.href='view-staff-owner.php';">Staff Information</li>
+            <li onclick="location.href='add-staff.php';">Add Staff</li>
+            <li onclick="location.href='view-staff-owner.php';">Manage Staff</li>
             <li onclick="location.href='../login.php';">Logout</li>
             <img src="../css/images/ico.png" alt="Logo"onclick="location.href='main-menu-owner.php';">
         </ul>
@@ -22,33 +25,40 @@
 		if(!$sqlConnect) 
             die("Failed to connect to the database");
 
-		// choose the database
-		$dbName = 'inventory_system';
-		$selectDB = mysqli_select_db($sqlConnect,$dbName);
-		if(!$selectDB) 
+        // choose the database
+        $dbName = 'inventory_system';
+        $selectDB = mysqli_select_db($sqlConnect,$dbName);
+        if(!$selectDB) 
             die("Failed to select the following databaseL: " . $dbName);
 
         if (isset($_GET['RecordID'])) {
             $RecordID = $_GET['RecordID'];
                 // Retrieve job records from job_record_table with matching RecordID
-                $sql = "SELECT JobDone, DateofJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID'";
+                $sql = "SELECT JobID, JobDone, DateofJob, JobCost FROM job_record_table WHERE RecordID = '$RecordID' ORDER BY DateOfJob DESC";
                 $result = mysqli_query($sqlConnect, $sql);
 
-                // Display table of job records
+                // Display table of job records with delete buttons
                 if (mysqli_num_rows($result) > 0) {
-                    echo "<table><tr><th>Job Done</th><th>Date of Job</th><th>Job Cost</th></tr>";
+                    echo "<table><tr><th>Job Done</th><th>Date of Job</th><th>Job Cost</th><th>Delete</th></tr>";
                     while($row = mysqli_fetch_assoc($result)) {
-                        echo "<tr><td>" . $row["JobDone"] . "</td><td>" . $row["DateofJob"] . "</td><td>" . $row["JobCost"] . "</td></tr>";
+                        echo "<tr>";
+                        echo "<td>" . $row["JobDone"] . "</td>";
+                        echo "<td>" . $row["DateofJob"] . "</td>";
+                        echo "<td>" . $row["JobCost"] . "</td><td>
+                        <form method='post' action='delete-job-record.php'>
+                        <input type='hidden' name='JobID' value='".$row["JobID"]."'>
+                        <button type='submit'>Delete</button>
+                        </form></td></tr>";
                     }
                     echo "</table>";
                 } else {
-                    echo "No job records found for this customer.";
+                    echo "<table><tr><td>No job records found for this customer.</td></tr></table>";
                 }
 
                 mysqli_close($sqlConnect);
         } else {
-            echo "No record ID provided.";
+            echo "<table><tr><td>No record ID provided.</td></tr></table>";
         }
-	?>
+?>
 </body>
 </html>
