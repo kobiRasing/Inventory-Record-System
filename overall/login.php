@@ -35,7 +35,7 @@
                 </div>
             </form>
 
-            <div class="error"> </div>
+            <div class="error">
         </div>
 
     <?php

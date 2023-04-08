@@ -29,7 +29,7 @@
                     <button type="submit">Already have an account?</button>
                 </div>
             </form>
-            <div class="error"> </div>
+            <div class="error">
         </div>
 
         <?php

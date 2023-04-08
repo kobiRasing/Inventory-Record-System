@@ -78,6 +78,10 @@ div.loginBody button:hover {
   background-color: #000;
 }
 
+.error {
+  text-align: center;
+}
+
 @keyframes slideup {
   from {
     opacity: 0;

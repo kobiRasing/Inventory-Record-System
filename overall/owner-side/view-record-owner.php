@@ -1,18 +1,21 @@
 <html>
 <head>
-	<title>Autofrost - Customer Record Table</title>
+	<title>Autofrost - Customer Records</title>
     <link rel="stylesheet" type="text/css" href="../css/viewrecord.css">
     <link rel = "icon" type = "image/png" href = "../css/images/ico.png"/>
 </head>
 
 <body id = "recordBody">
 	<nav>
-        <ul>
+		<ul>
 			<li onclick="location.href='main-menu-owner.php';">Home</li>
+            <li onclick="location.href='add-new-record.php';">Add New Record</li>
+            <li onclick="location.href='add-existing-record.php';">Add Existing Record</li>
             <li onclick="location.href='view-record-owner.php';">Customer Records</li>
-            <li onclick="location.href='view-staff-owner.php';">Staff Information</li>
+            <li onclick="location.href='add-staff.php';">Add Staff</li>
+            <li onclick="location.href='view-staff-owner.php';">Manage Staff</li>
             <li onclick="location.href='../login.php';">Logout</li>
-            <img src="../css/images/ico.png" alt="Logo" onclick="location.href='main-menu-owner.php';">
+            <img src="../css/images/ico.png" alt="Logo"onclick="location.href='main-menu-owner.php';">
         </ul>
     </nav>
 
@@ -55,7 +58,7 @@
 					echo "</tr>";
 				}
 			} else {
-				echo "0 results";
+				echo "<table><tr><td>0 Results!.</td></tr></table>";
 			}
 
 			mysqli_close($sqlConnect);
