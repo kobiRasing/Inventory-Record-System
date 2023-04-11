@@ -55,7 +55,7 @@ div.loginBody label {
 
 div.loginBody input[type="text"],
 div.loginBody input[type="password"] {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   border-radius: 3px;
   border: none;
