@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title> Autofrost - Record Management System </title>
+    <title> Autofrost - Add Existing Record</title>
     <link rel = "stylesheet" type = "text/css" href = "../css/existingrecord.css"/>
     <link rel = "icon" type = "image/png" href = "../css/images/ico.png"/>
 </head>

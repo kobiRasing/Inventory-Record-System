@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Autofrost - Staff Record Table</title>
+	<title>Autofrost - Customer Records</title>
     <link rel="stylesheet" type="text/css" href="../css/viewrecord.css">
     <link rel = "icon" type = "image/png" href = "../css/images/ico.png"/>
 </head>
