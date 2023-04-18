@@ -12,31 +12,36 @@
             $input_user = trim($_POST['user']); // trim to remove extra whitespace
             $input_pass = trim($_POST['pass']);
 
-            if(empty($input_user) || empty($input_pass)){
-                $errorMessage = "Both username and password fields are required.";
-            }else{
-                // open connection to mysql
-                $sqlConnect = mysqli_connect('localhost','root','','inventory_system');
-                if(!$sqlConnect) 
-                    die("Failed to connect to the database");
-
-                // retrieve account from sql
-                $account = mysqli_query($sqlConnect, "SELECT * FROM accounts_table WHERE Username='$input_user' AND Password='$input_pass' LIMIT 1");
-
-                if(mysqli_num_rows($account) == 1){ // check if account exists
-                    $accountData = mysqli_fetch_assoc($account);
-                    if($accountData['IsOwner']){
-                        header("Location: owner-side/main-menu-owner.php");
-                        exit();
-                    }
-                    else{
-                        header("Location: employee-side/main-menu-employee.php");
-                        exit();
-                    }
+            if($input_user != $input_pass){
+                $errorMessage = "Invalid username or password.";
+            } 
+            else{   
+                if(empty($input_user) || empty($input_pass)){
+                    $errorMessage = "Both username and password fields are required.";
                 }else{
-                    $errorMessage = "Invalid username or password.";
+                    // open connection to mysql
+                    $sqlConnect = mysqli_connect('localhost','root','','inventory_system');
+                    if(!$sqlConnect) 
+                        die("Failed to connect to the database");
+
+                    // retrieve account from sql
+                    $account = mysqli_query($sqlConnect, "SELECT * FROM accounts_table WHERE Username='$input_user' AND Password='$input_pass' LIMIT 1");
+
+                    if(mysqli_num_rows($account) == 1){ // check if account exists
+                        $accountData = mysqli_fetch_assoc($account);
+                        if($accountData['IsOwner']){
+                            header("Location: owner-side/main-menu-owner.php");
+                            exit();
+                        }
+                        else{
+                            header("Location: employee-side/main-menu-employee.php");
+                            exit();
+                        }
+                    }else{
+                        $errorMessage = "Invalid username or password.";
+                    }
+                    mysqli_close($sqlConnect);
                 }
-                mysqli_close($sqlConnect);
             }
         }
     ?>
