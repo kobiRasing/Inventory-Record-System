@@ -54,7 +54,7 @@
             
         <div class="existingrecordBody">
             <form action = 'add-existing-record.php' method = 'post'>
-                Current Date (yyy-mm-dd): <input type = 'text' name = 'new-date' /><br>
+                Current Date (yyyy-mm-dd): <input type = 'text' name = 'new-date' /><br>
                 Job Done: <input type = 'text' name = 'new-job-done' /><br>
                 Cost of Job: <input type = 'text' name = 'new-job-cost' /><br> <br>
                 <div class="btn-group">
